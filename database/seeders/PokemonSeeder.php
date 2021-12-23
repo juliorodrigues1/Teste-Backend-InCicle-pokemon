@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pokemon;
+use App\Services\GetwayResquest;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Http;
 
 class PokemonSeeder extends Seeder
 {
@@ -14,6 +15,12 @@ class PokemonSeeder extends Seeder
      */
     public function run()
     {
-        return Http::get(env('URL_POKEMON'));
+        $getway = new GetwayResquest();
+        $response = $getway->getUri();
+        foreach ($response->json()['results'] as $pokemon){
+            Pokemon::create([
+                'nome' => $pokemon['name']
+            ]);
+        }
     }
 }
