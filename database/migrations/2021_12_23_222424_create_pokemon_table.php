@@ -15,7 +15,7 @@ class CreatePokemonTable extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->comment('coluna para armazenar nome dos pokemons');
+            $table->string('name')->comment('coluna para armazenar nome dos pokemons');
             $table->timestamps();
         });
     }

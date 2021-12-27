@@ -19,7 +19,7 @@ class PokemonSeeder extends Seeder
         $response = $getway->getUri();
         foreach ($response->json()['results'] as $pokemon){
             Pokemon::create([
-                'nome' => $pokemon['name']
+                'name' => $pokemon['name']
             ]);
         }
     }
