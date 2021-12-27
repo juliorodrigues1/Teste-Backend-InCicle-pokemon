@@ -32,7 +32,7 @@ class PokemonController extends Controller
         $pokemonsDB = Pokemon::orderBy('name')->get();
         $pokemon = [];
         foreach ($pokemonsDB as $key => $pokemonDB){
-            $pokemon[$key]['name'] = $pokemonDB->nome;
+            $pokemon[$key]['name'] = $pokemonDB->name;
         }
 
         return $pokemon;
